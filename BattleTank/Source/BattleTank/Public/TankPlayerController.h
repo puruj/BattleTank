@@ -22,14 +22,23 @@ private:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 	//move turret so it hit aims towards crosshair
 	void AimTowardsCrosshair();
+
 	//Return OUT parameter, true if landscape hit
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+
 	UPROPERTY(EditAnywhere)
 	float CrossHairXLocation = 0.5;
+
 	UPROPERTY(EditAnywhere)
 	float CrossHairYLocation = 0.33333;
+
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000;
 	
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 
 };
